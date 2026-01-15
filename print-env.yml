@@ -5,4 +5,4 @@
   tasks:
     - name: Show environment variable
       debug:
-        msg: "The value of MY_ENV_VAR is {{ test }}"
+        msg: "Environment variable value is: {{ env }}"
