@@ -1,0 +1,30 @@
+
+name: Run Ansible Playbook
+
+on:
+  workflow_dispatch:
+    inputs:
+      vars_file:
+        description: "Path to vars file"
+        required: true
+        default: "vars.yml"
+
+jobs:
+  run-playbook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Ansible
+        run: pip install ansible-core
+
+      - name: Run playbook
+        run: |
+          ansible-playbook print_env.yml -i localhost, \
+            --extra-vars "@${{ github.event.inputs.vars_file }}"
+
