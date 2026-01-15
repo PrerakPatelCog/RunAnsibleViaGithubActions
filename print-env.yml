@@ -1,0 +1,8 @@
+---
+- name: Print environment variable
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Show environment variable
+      debug:
+        msg: "The value of MY_ENV_VAR is {{ test }}"
