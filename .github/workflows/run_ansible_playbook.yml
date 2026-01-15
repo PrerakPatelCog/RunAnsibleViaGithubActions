@@ -25,6 +25,6 @@ jobs:
 
       - name: Run playbook
         run: |
-          ansible-playbook print_env.yml -i localhost, \
+          ansible-playbook print-env.yml -i localhost, \
             --extra-vars "@${{ github.event.inputs.vars_file }}"
 
